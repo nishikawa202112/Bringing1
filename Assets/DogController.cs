@@ -11,6 +11,8 @@ public class DogController : MonoBehaviour
     private GameObject target;
     NavMeshAgent navmeshagent;
     public GameObject child;
+    public GameObject Camera;
+    private Vector3 lookAtTarget;
 
 
     // Start is called before the first frame update
@@ -35,13 +37,19 @@ public class DogController : MonoBehaviour
             {
                 child = transform.GetChild(1).gameObject;
                 child.transform.parent = null;
-                child.transform.position = new Vector3(0, 0.1f, -26.0f);
+                child.transform.position = new Vector3(0, 0.1f, -26.5f);
                 target = Ball;
             }
         }
-        if (GameManager.GetComponent<GameManager>().state == 2)
+        if ((GameManager.GetComponent<GameManager>().state >= 2)  && (GameManager.GetComponent<GameManager>().state <= 10))
         {
             child = null;
+        }
+        if (GameManager.GetComponent<GameManager>().state >= 11)     //正面にむける
+        {
+            lookAtTarget = Camera.transform.position;
+            lookAtTarget.y = this.transform.position.y;
+            this.transform.LookAt(lookAtTarget);
         }
     }
 
