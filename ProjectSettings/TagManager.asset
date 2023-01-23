@@ -8,6 +8,9 @@ TagManager:
   - BarTag
   - CanTag
   - GoalTag
+  - HouseKeyTag
+  - FullMarksParticleTag
+  - FinalParticleTag
   layers:
   - Default
   - TransparentFX

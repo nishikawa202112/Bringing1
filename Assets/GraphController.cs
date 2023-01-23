@@ -28,7 +28,7 @@ public class GraphController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((GameManager.GetComponent<GameManager>().state >= 2) && (GameManager.GetComponent<GameManager>().state <= 10))
+        if ((GameManager.GetComponent<GameManager>().state >= (State)2) && (GameManager.GetComponent<GameManager>().state <= (State)10))
         {
             graph.enabled = true;
             GraphBack.GetComponent<Image>().enabled = true;
@@ -36,7 +36,7 @@ public class GraphController : MonoBehaviour
             GraphText.GetComponent<Text>().text = "ココアちゃん\nハッピーポイント";
         }
         graph.fillAmount = GameManager.GetComponent<GameManager>().happyPoint + basepoint;
-        if (GameManager.GetComponent<GameManager>().state == 11)
+        if (GameManager.GetComponent<GameManager>().state == (State)11)
         {
             graph.enabled = false;
             GraphBack.GetComponent<Image>().enabled = false;
